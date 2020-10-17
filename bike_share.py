@@ -24,22 +24,22 @@ def get_filters():
         else:
             print("Wrong input. Please enter a valid input: chicago, new york city, washington")
     # get user input for month (all, january, february, ... , june)
-    while True:    
+    while True:
         month = input("Please specify the month to show the details: january, february,....,june. or type 'all' to show all 6 months")
         month = month.lower()
         if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
             break
         else:
-            print("Wrong input. Please enter a valid input: january, february,....,june. or type 'all'")
+            print(" This is wrong input. Please enter a valid input: january, february,....,june. or type 'all'")
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input("Please specify the day: monday, tuesday,....,sunday or type 'all' to show details for all days")
-		
+
         day = day.lower()
         if day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']:
             break
         else:
-            print("Wrong input. Please enter a valid input: monday, tuesday,....,sunday or type 'all'")
+            print("This is wrong input. Please enter a valid input: monday, tuesday,....,sunday or type 'all'")
     print('-'*40)
     return city, month, day
 
@@ -56,7 +56,7 @@ def load_data(city, month, day):
     """
      # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
@@ -70,14 +70,14 @@ def load_data(city, month, day):
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
-        
+
         df = df[df['day_of_week'] == day.title()]
 
     return df
