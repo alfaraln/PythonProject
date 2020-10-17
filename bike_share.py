@@ -30,7 +30,7 @@ def get_filters():
         if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
             break
         else:
-            print("Wrong input. Please enter a valid input: january, february,....,june. or type 'all'")
+            print(" This is wrong input. Please enter a valid input: january, february,....,june. or type 'all'")
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input("Please specify the day: monday, tuesday,....,sunday or type 'all' to show details for all days")
@@ -39,7 +39,7 @@ def get_filters():
         if day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']:
             break
         else:
-            print("Wrong input. Please enter a valid input: monday, tuesday,....,sunday or type 'all'")
+            print("This is wrong input. Please enter a valid input: monday, tuesday,....,sunday or type 'all'")
     print('-'*40)
     return city, month, day
 
@@ -90,14 +90,14 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
-    print("The most common month is ", df['month'].mode()[0], "\n")
+    print("****The most common month is **** ", df['month'].mode()[0], "\n")
 
     # display the most common day of week
-    print("The most common day of week is ", df['day_of_week'].mode()[0], "\n")
+    print("****The most common day of week is **** ", df['day_of_week'].mode()[0], "\n")
 
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
-    print("The most common start hour is ", df['hour'].mode()[0])
+    print("****The most common start hour is **** ", df['hour'].mode()[0])
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -156,9 +156,9 @@ def user_stats(df, city):
         mryob = sorted(df.groupby(['Birth Year'])['Birth Year'], reverse=True)[0][0]
         eyob = sorted(df.groupby(['Birth Year'])['Birth Year'])[0][0]
         mcyob = df['Birth Year'].mode()[0]
-        print("The earliest year of birth is ", eyob, "\n")
-        print("The most recent year of birth is ", mryob, "\n")
-        print("The most common year of birth is ", mcyob, "\n")
+        print("####The earliest year of birth is #### ", eyob, "\n")
+        print("####The most recent year of birth is #### ", mryob, "\n")
+        print("####The most common year of birth is #### ", mcyob, "\n")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
