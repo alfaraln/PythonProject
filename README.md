@@ -8,7 +8,4 @@ This program will allow users to explore data related to bike share in three maj
 
 Files Used:
 
-bike_share.py
-washington.csv
-new_york_city.csv
-chicago.csv
+bike_share.py, washington.csv, new_york_city.csv and chicago.csv
